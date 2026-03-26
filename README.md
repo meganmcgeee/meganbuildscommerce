@@ -96,4 +96,3 @@ The client-side chat UI in `components/ChatWindow.tsx` consumes this stream and 
 - Animations are scoped and guarded by `prefers-reduced-motion`.
 - No client-side data fetching is used for static sections.
 - Images/logos are text-only for now to keep the bundle lean; you can swap in optimized SVGs or `next/image` assets as needed.
-
