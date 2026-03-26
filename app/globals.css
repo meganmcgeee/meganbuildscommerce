@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #050608;
+  --foreground: #f9fafb;
+  --muted: #6b7280;
+  --accent: #10b981;
+  --border: #111827;
+  --accent-soft: #064e3b;
+  color-scheme: dark;
+}
+
+:root.lights-on {
+  --background: #f9fafb;
+  --foreground: #111827;
+  --muted: #6b7280;
+  --accent: #059669;
+  --border: #e5e7eb;
+  --accent-soft: #d1fae5;
+  color-scheme: light;
+}
+
+html,
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  @apply antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+body {
+  @apply min-h-screen;
+}
+
+main {
+  @apply min-h-screen;
+}
+
+a {
+  color: var(--accent);
+  @apply underline-offset-4 hover:underline;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes arrow-drift {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+}
+
+.section-arrow-icon {
+  animation: arrow-drift 2.6s ease-in-out infinite;
+}
+
+.group:hover .section-arrow-icon,
+.group:focus-visible .section-arrow-icon {
+  animation: none;
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .section-arrow-icon {
+    animation: none !important;
+  }
+
+  .group:hover .section-arrow-icon,
+  .group:focus-visible .section-arrow-icon {
+    transform: none !important;
+  }
+}
+
